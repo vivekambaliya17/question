@@ -7,7 +7,9 @@ const conect = require('./conect')
 let app = express()
 
 app.use(express.json())
-
+app.get("/home",(req,res)=>{
+    res.send("send")
+})
 app.post("/",async(req,res)=>{
    bookCollection.create(req.body) 
     let pricelow=await bookCollection.find().sort({"price":-1})
